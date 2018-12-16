@@ -1,72 +1,145 @@
-![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)
+# ati-search-bar
 
-# Stencil Component Starter
+Searchbars represent a text field that can be used to search through a collection. They can be displayed inside of a toolbar or the main content.
 
-This is a starter project for building a standalone Web Component using Stencil.
+A Searchbar should be used instead of an input to search lists. A clear button is displayed upon entering input in the searchbar's text field. Clicking on the clear button will erase the text field and the input will remain focused. A cancel button can be enabled which will clear the input and lose the focus upon click.
 
-Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
+<!-- Auto Generated Below -->
 
-# Stencil
 
-Stencil is a compiler for building fast web apps using Web Components.
+## Usage
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+### Angular
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
+```html
+<!-- Default Searchbar -->
+<ion-searchbar></ion-searchbar>
 
-## Getting Started
+<!-- Searchbar with danger color -->
+<ion-searchbar color="danger"></ion-searchbar>
 
-To start building a new web component using Stencil, clone this repo to a new directory:
+<!-- Searchbar with value -->
+<ion-searchbar value="Ionic"></ion-searchbar>
 
-```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
+<!-- Searchbar with telephone type -->
+<ion-searchbar type="tel"></ion-searchbar>
+
+<!-- Searchbar with a cancel button and custom cancel button text -->
+<ion-searchbar showCancelButton cancelButtonText="Custom Cancel"></ion-searchbar>
+
+<!-- Searchbar with a custom debounce -->
+<ion-searchbar debounce="500"></ion-searchbar>
+
+<!-- Animated Searchbar -->
+<ion-searchbar animated></ion-searchbar>
+
+<!-- Searchbar with a placeholder -->
+<ion-searchbar placeholder="Filter Schedules"></ion-searchbar>
+
+<!-- Searchbar in a Toolbar -->
+<ion-toolbar>
+  <ion-searchbar></ion-searchbar>
+</ion-toolbar>
 ```
 
-and run:
 
-```bash
-npm install
-npm start
+### Javascript
+
+```html
+<!-- Default Searchbar -->
+<ion-searchbar></ion-searchbar>
+
+<!-- Searchbar with danger color -->
+<ion-searchbar color="danger"></ion-searchbar>
+
+<!-- Searchbar with value -->
+<ion-searchbar value="Ionic"></ion-searchbar>
+
+<!-- Searchbar with telephone type -->
+<ion-searchbar type="tel"></ion-searchbar>
+
+<!-- Searchbar with a cancel button and custom cancel button text -->
+<ion-searchbar show-cancel-button cancel-button-text="Custom Cancel"></ion-searchbar>
+
+<!-- Searchbar with a custom debounce -->
+<ion-searchbar debounce="500"></ion-searchbar>
+
+<!-- Animated Searchbar -->
+<ion-searchbar animated></ion-searchbar>
+
+<!-- Searchbar with a placeholder -->
+<ion-searchbar placeholder="Filter Schedules"></ion-searchbar>
+
+<!-- Searchbar in a Toolbar -->
+<ion-toolbar>
+  <ion-searchbar></ion-searchbar>
+</ion-toolbar>
 ```
 
-To build the component for production, run:
-
-```bash
-npm run build
-```
-
-To run the unit tests for the components, run:
-
-```bash
-npm test
-```
-
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
 
 
-## Naming Components
+## Properties
 
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
+| Property           | Attribute            | Description                                                                                                                                                                                                                                                            | Type                                                                        | Default           |
+| ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------- |
+| `animated`         | `animated`           | If `true`, enable searchbar animation.                                                                                                                                                                                                                                 | `boolean`                                                                   | `false`           |
+| `autocomplete`     | `autocomplete`       | Set the input's autocomplete property.                                                                                                                                                                                                                                 | `"off" \| "on"`                                                             | `'off'`           |
+| `autocorrect`      | `autocorrect`        | Set the input's autocorrect property.                                                                                                                                                                                                                                  | `"off" \| "on"`                                                             | `'off'`           |
+| `cancelButtonIcon` | `cancel-button-icon` | Set the cancel button icon. Only applies to `md` mode.                                                                                                                                                                                                                 | `string`                                                                    | `'md-arrow-back'` |
+| `cancelButtonText` | `cancel-button-text` | Set the the cancel button text. Only applies to `ios` mode.                                                                                                                                                                                                            | `string`                                                                    | `'Cancel'`        |
+| `clearIcon`        | `clear-icon`         | Set the clear icon. Defaults to `"close-circle"` for `ios` and `"close"` for `md`.                                                                                                                                                                                     | `string \| undefined`                                                       | `undefined`       |
+| `color`            | `color`              | The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics). | `string \| undefined`                                                       | `undefined`       |
+| `debounce`         | `debounce`           | Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.                                                                                                                                                                | `number`                                                                    | `250`             |
+| `mode`             | `mode`               | The mode determines which platform styles to use.                                                                                                                                                                                                                      | `"ios" \| "md"`                                                             | `undefined`       |
+| `placeholder`      | `placeholder`        | Set the input's placeholder.                                                                                                                                                                                                                                           | `string`                                                                    | `'Search'`        |
+| `searchIcon`       | `search-icon`        | The icon to use as the search icon.                                                                                                                                                                                                                                    | `string`                                                                    | `'search'`        |
+| `showCancelButton` | `show-cancel-button` | If `true`, show the cancel button.                                                                                                                                                                                                                                     | `boolean`                                                                   | `false`           |
+| `spellcheck`       | `spellcheck`         | If `true`, enable spellcheck on the input.                                                                                                                                                                                                                             | `boolean`                                                                   | `false`           |
+| `type`             | `type`               | Set the type of the input.                                                                                                                                                                                                                                             | `"email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url"` | `'search'`        |
+| `value`            | `value`              | the value of the searchbar.                                                                                                                                                                                                                                            | `null \| string \| undefined`                                               | `''`              |
 
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
+
+## Events
+
+| Event       | Description                                     | Detail               |
+| ----------- | ----------------------------------------------- | -------------------- |
+| `ionBlur`   | Emitted when the input loses focus.             | void                 |
+| `ionCancel` | Emitted when the cancel button is clicked.      | void                 |
+| `ionChange` | Emitted when the value has changed.             | TextInputChangeEvent |
+| `ionClear`  | Emitted when the clear input button is clicked. | void                 |
+| `ionFocus`  | Emitted when the input has focus.               | void                 |
+| `ionInput`  | Emitted when a keyboard input ocurred.          | KeyboardEvent        |
 
 
-## Using this component
+## Methods
 
-### Script tag
+### `setFocus() => void`
 
-- [Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
+Sets focus on the specified `ion-searchbar`. Use this method instead of the global
+`input.focus()`.
 
-### Node Modules
-- Run `npm install my-component --save`
-- Put a script tag similar to this `<script src='node_modules/my-component/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
+#### Returns
 
-### In a stencil-starter app
-- Run `npm install my-component --save`
-- Add an import to the npm packages `import my-component;`
-- Then you can use the element anywhere in your template, JSX, html etc
+Type: `void`
+
+
+
+
+## CSS Custom Properties
+
+| Name                        | Description                              |
+| --------------------------- | ---------------------------------------- |
+| `--background`              | Background of the searchbar              |
+| `--cancel-button-color`     | Color of the searchbar cancel button     |
+| `--clear-button-color`      | Color of the searchbar clear button      |
+| `--color`                   | Color of the searchbar text              |
+| `--icon-color`              | Color of the searchbar icon              |
+| `--placeholder-color`       | Color of the searchbar placeholder       |
+| `--placeholder-font-style`  | Font style of the searchbar placeholder  |
+| `--placeholder-font-weight` | Font weight of the searchbar placeholder |
+| `--placeholder-opacity`     | Opacity of the searchbar placeholder     |
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

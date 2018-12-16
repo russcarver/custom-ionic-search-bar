@@ -1,7 +1,7 @@
 {
-  "name": "___PROJECT_NAME___",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "name": "customIonicSearchBar",
+  "version": "1.0.0",
+  "description": "A more customizable Ionic Search Bar",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
   "unpkg": "dist/ionic.js",
@@ -18,7 +18,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "~0.15.2"
+    "@stencil/core": "~0.15.2",
+    "@stencil/sass": "0.1.1"
   },
   "license": "MIT"
 }

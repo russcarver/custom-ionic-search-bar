@@ -8,62 +8,194 @@
 import '@stencil/core';
 
 
+import {
+  Color,
+  Mode,
+  TextInputChangeEvent,
+} from './interface';
+import {
+  EventEmitter,
+} from '@stencil/core';
 
 
 export namespace Components {
 
-  interface MyComponent {
+  interface CiSearchBar {
     /**
-    * The first name
+    * If `true`, enable searchbar animation.
     */
-    'first': string;
+    'animated': boolean;
     /**
-    * The last name
+    * Set the input's autocomplete property.
     */
-    'last': string;
+    'autocomplete': 'on' | 'off';
     /**
-    * The middle name
+    * Set the input's autocorrect property.
     */
-    'middle': string;
+    'autocorrect': 'on' | 'off';
+    /**
+    * Set the cancel button icon. Only applies to `md` mode.
+    */
+    'cancelButtonIcon': string;
+    /**
+    * Set the the cancel button text. Only applies to `ios` mode.
+    */
+    'cancelButtonText': string;
+    /**
+    * Set the clear icon. Defaults to `"close-circle"` for `ios` and `"close"` for `md`.
+    */
+    'clearIcon'?: string;
+    /**
+    * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+    */
+    'color'?: Color;
+    /**
+    * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+    */
+    'debounce': number;
+    /**
+    * The mode determines which platform styles to use.
+    */
+    'mode': Mode;
+    /**
+    * Set the input's placeholder.
+    */
+    'placeholder': string;
+    /**
+    * The icon to use as the search icon.
+    */
+    'searchIcon': string;
+    /**
+    * Sets focus on the specified `ion-searchbar`. Use this method instead of the global `input.focus()`.
+    */
+    'setFocus': () => void;
+    /**
+    * If `true`, show the cancel button.
+    */
+    'showCancelButton': boolean;
+    /**
+    * If `true`, enable spellcheck on the input.
+    */
+    'spellcheck': boolean;
+    /**
+    * Set the type of the input.
+    */
+    'type': 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
+    /**
+    * the value of the searchbar.
+    */
+    'value'?: string | null;
   }
-  interface MyComponentAttributes extends StencilHTMLAttributes {
+  interface CiSearchBarAttributes extends StencilHTMLAttributes {
     /**
-    * The first name
+    * If `true`, enable searchbar animation.
     */
-    'first'?: string;
+    'animated'?: boolean;
     /**
-    * The last name
+    * Set the input's autocomplete property.
     */
-    'last'?: string;
+    'autocomplete'?: 'on' | 'off';
     /**
-    * The middle name
+    * Set the input's autocorrect property.
     */
-    'middle'?: string;
+    'autocorrect'?: 'on' | 'off';
+    /**
+    * Set the cancel button icon. Only applies to `md` mode.
+    */
+    'cancelButtonIcon'?: string;
+    /**
+    * Set the the cancel button text. Only applies to `ios` mode.
+    */
+    'cancelButtonText'?: string;
+    /**
+    * Set the clear icon. Defaults to `"close-circle"` for `ios` and `"close"` for `md`.
+    */
+    'clearIcon'?: string;
+    /**
+    * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+    */
+    'color'?: Color;
+    /**
+    * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+    */
+    'debounce'?: number;
+    /**
+    * The mode determines which platform styles to use.
+    */
+    'mode'?: Mode;
+    /**
+    * Emitted when the input loses focus.
+    */
+    'onIonBlur'?: (event: CustomEvent<void>) => void;
+    /**
+    * Emitted when the cancel button is clicked.
+    */
+    'onIonCancel'?: (event: CustomEvent<void>) => void;
+    /**
+    * Emitted when the value has changed.
+    */
+    'onIonChange'?: (event: CustomEvent<TextInputChangeEvent>) => void;
+    /**
+    * Emitted when the clear input button is clicked.
+    */
+    'onIonClear'?: (event: CustomEvent<void>) => void;
+    /**
+    * Emitted when the input has focus.
+    */
+    'onIonFocus'?: (event: CustomEvent<void>) => void;
+    /**
+    * Emitted when a keyboard input ocurred.
+    */
+    'onIonInput'?: (event: CustomEvent<KeyboardEvent>) => void;
+    /**
+    * Set the input's placeholder.
+    */
+    'placeholder'?: string;
+    /**
+    * The icon to use as the search icon.
+    */
+    'searchIcon'?: string;
+    /**
+    * If `true`, show the cancel button.
+    */
+    'showCancelButton'?: boolean;
+    /**
+    * If `true`, enable spellcheck on the input.
+    */
+    'spellcheck'?: boolean;
+    /**
+    * Set the type of the input.
+    */
+    'type'?: 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
+    /**
+    * the value of the searchbar.
+    */
+    'value'?: string | null;
   }
 }
 
 declare global {
   interface StencilElementInterfaces {
-    'MyComponent': Components.MyComponent;
+    'CiSearchBar': Components.CiSearchBar;
   }
 
   interface StencilIntrinsicElements {
-    'my-component': Components.MyComponentAttributes;
+    'ci-search-bar': Components.CiSearchBarAttributes;
   }
 
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  interface HTMLCiSearchBarElement extends Components.CiSearchBar, HTMLStencilElement {}
+  var HTMLCiSearchBarElement: {
+    prototype: HTMLCiSearchBarElement;
+    new (): HTMLCiSearchBarElement;
   };
 
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement
+    'ci-search-bar': HTMLCiSearchBarElement
   }
 
   interface ElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'ci-search-bar': HTMLCiSearchBarElement;
   }
 
 

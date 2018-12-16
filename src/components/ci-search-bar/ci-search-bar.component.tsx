@@ -4,14 +4,14 @@ import { debounceEvent } from '../../utils/helpers';
 import { createColorClasses } from '../../utils/theme';
 
 @Component({
-  tag: 'ati-search-bar',
+  tag: 'ci-search-bar',
   styleUrls: {
-    ios: 'ati-search-bar.ios.scss',
-    md: 'ati-search-bar.md.scss'
+    ios: 'ci-search-bar.ios.scss',
+    md: 'ci-search-bar.md.scss'
   },
   scoped: true
 })
-export class AtiSearchBar implements ComponentInterface {
+export class CustomIonicSearchBar implements ComponentInterface {
 
   private nativeInput?: HTMLInputElement;
   private isCancelVisible = false;
