@@ -1,11 +1,11 @@
-# ati-search-bar
+# custom-ionic-search-bar
 
 Searchbars represent a text field that can be used to search through a collection. They can be displayed inside of a toolbar or the main content.
 
 A Searchbar should be used instead of an input to search lists. A clear button is displayed upon entering input in the searchbar's text field. Clicking on the clear button will erase the text field and the input will remain focused. A cancel button can be enabled which will clear the input and lose the focus upon click.
 
-<!-- Auto Generated Below -->
-
+## Install
+`npm install ci-search-bar -SE`
 
 ## Usage
 
@@ -13,32 +13,32 @@ A Searchbar should be used instead of an input to search lists. A clear button i
 
 ```html
 <!-- Default Searchbar -->
-<ion-searchbar></ion-searchbar>
+<ci-search-bar></ci-search-bar>
 
 <!-- Searchbar with danger color -->
-<ion-searchbar color="danger"></ion-searchbar>
+<ci-search-bar color="danger"></ci-search-bar>
 
 <!-- Searchbar with value -->
-<ion-searchbar value="Ionic"></ion-searchbar>
+<ci-search-bar value="Ionic"></ci-search-bar>
 
 <!-- Searchbar with telephone type -->
-<ion-searchbar type="tel"></ion-searchbar>
+<ci-search-bar type="tel"></ci-search-bar>
 
 <!-- Searchbar with a cancel button and custom cancel button text -->
-<ion-searchbar showCancelButton cancelButtonText="Custom Cancel"></ion-searchbar>
+<ci-search-bar showCancelButton cancelButtonText="Custom Cancel"></ci-search-bar>
 
 <!-- Searchbar with a custom debounce -->
-<ion-searchbar debounce="500"></ion-searchbar>
+<ci-search-bar debounce="500"></ci-search-bar>
 
 <!-- Animated Searchbar -->
-<ion-searchbar animated></ion-searchbar>
+<ci-search-bar animated></ci-search-bar>
 
 <!-- Searchbar with a placeholder -->
-<ion-searchbar placeholder="Filter Schedules"></ion-searchbar>
+<ci-search-bar placeholder="Filter Schedules"></ci-search-bar>
 
 <!-- Searchbar in a Toolbar -->
 <ion-toolbar>
-  <ion-searchbar></ion-searchbar>
+  <ci-search-bar></ci-search-bar>
 </ion-toolbar>
 ```
 
@@ -47,32 +47,32 @@ A Searchbar should be used instead of an input to search lists. A clear button i
 
 ```html
 <!-- Default Searchbar -->
-<ion-searchbar></ion-searchbar>
+<ci-search-bar></ci-search-bar>
 
 <!-- Searchbar with danger color -->
-<ion-searchbar color="danger"></ion-searchbar>
+<ci-search-bar color="danger"></ci-search-bar>
 
 <!-- Searchbar with value -->
-<ion-searchbar value="Ionic"></ion-searchbar>
+<ci-search-bar value="Ionic"></ci-search-bar>
 
 <!-- Searchbar with telephone type -->
-<ion-searchbar type="tel"></ion-searchbar>
+<ci-search-bar type="tel"></ci-search-bar>
 
 <!-- Searchbar with a cancel button and custom cancel button text -->
-<ion-searchbar show-cancel-button cancel-button-text="Custom Cancel"></ion-searchbar>
+<ci-search-bar show-cancel-button cancel-button-text="Custom Cancel"></ci-search-bar>
 
 <!-- Searchbar with a custom debounce -->
-<ion-searchbar debounce="500"></ion-searchbar>
+<ci-search-bar debounce="500"></ci-search-bar>
 
 <!-- Animated Searchbar -->
-<ion-searchbar animated></ion-searchbar>
+<ci-search-bar animated></ci-search-bar>
 
 <!-- Searchbar with a placeholder -->
-<ion-searchbar placeholder="Filter Schedules"></ion-searchbar>
+<ci-search-bar placeholder="Filter Schedules"></ci-search-bar>
 
 <!-- Searchbar in a Toolbar -->
 <ion-toolbar>
-  <ion-searchbar></ion-searchbar>
+  <ci-search-bar></ci-search-bar>
 </ion-toolbar>
 ```
 
@@ -115,7 +115,7 @@ A Searchbar should be used instead of an input to search lists. A clear button i
 
 ### `setFocus() => void`
 
-Sets focus on the specified `ion-searchbar`. Use this method instead of the global
+Sets focus on the specified `ci-search-bar`. Use this method instead of the global
 `input.focus()`.
 
 #### Returns
