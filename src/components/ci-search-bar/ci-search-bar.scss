@@ -1,5 +1,5 @@
 @import "./ci-search-bar.component";
-@import "./ci-search-bar.md.vars";
+@import "./ci-search-bar.vars";
 
 // Material Design Searchbar
 // --------------------------------------------------
@@ -64,7 +64,7 @@
 // -----------------------------------------
 
 .searchbar-input {
-  @include padding(6px, 55px);
+  @include padding(6px, 16px, 6px, 55px);
   @include border-radius($searchbar-md-input-border-radius);
   @include background-position(start, 8px, center);
 
@@ -78,6 +78,9 @@
   box-shadow: $searchbar-md-input-box-shadow;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
 
 // Searchbar Clear Input Icon
 // -----------------------------------------

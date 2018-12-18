@@ -24,9 +24,6 @@ A Searchbar should be used instead of an input to search lists. A clear button i
 <!-- Searchbar with telephone type -->
 <ci-search-bar type="tel"></ci-search-bar>
 
-<!-- Searchbar with a cancel button and custom cancel button text -->
-<ci-search-bar showCancelButton cancelButtonText="Custom Cancel"></ci-search-bar>
-
 <!-- Searchbar with a custom debounce -->
 <ci-search-bar debounce="500"></ci-search-bar>
 
@@ -58,9 +55,6 @@ A Searchbar should be used instead of an input to search lists. A clear button i
 <!-- Searchbar with telephone type -->
 <ci-search-bar type="tel"></ci-search-bar>
 
-<!-- Searchbar with a cancel button and custom cancel button text -->
-<ci-search-bar show-cancel-button cancel-button-text="Custom Cancel"></ci-search-bar>
-
 <!-- Searchbar with a custom debounce -->
 <ci-search-bar debounce="500"></ci-search-bar>
 
@@ -85,12 +79,10 @@ A Searchbar should be used instead of an input to search lists. A clear button i
 | `animated`         | `animated`           | If `true`, enable searchbar animation.                                                                                                                                                                                                                                 | `boolean`                                                                   | `false`           |
 | `autocomplete`     | `autocomplete`       | Set the input's autocomplete property.                                                                                                                                                                                                                                 | `"off" \| "on"`                                                             | `'off'`           |
 | `autocorrect`      | `autocorrect`        | Set the input's autocorrect property.                                                                                                                                                                                                                                  | `"off" \| "on"`                                                             | `'off'`           |
-| `cancelButtonIcon` | `cancel-button-icon` | Set the cancel button icon. Only applies to `md` mode.                                                                                                                                                                                                                 | `string`                                                                    | `'md-arrow-back'` |
-| `cancelButtonText` | `cancel-button-text` | Set the the cancel button text. Only applies to `ios` mode.                                                                                                                                                                                                            | `string`                                                                    | `'Cancel'`        |
-| `clearIcon`        | `clear-icon`         | Set the clear icon. Defaults to `"close-circle"` for `ios` and `"close"` for `md`.                                                                                                                                                                                     | `string \| undefined`                                                       | `undefined`       |
+| `cancelButtonIcon` | `cancel-button-icon` | Set the cancel button icon.                                                                                                                                                                                                                                            | `string`                                                                    | `'md-arrow-back'` |
+| `clearIcon`        | `clear-icon`         | Set the clear icon. Defaults to `"close"`.                                                                                                                                                                                                                             | `string \| undefined`                                                       | `undefined`       |
 | `color`            | `color`              | The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics). | `string \| undefined`                                                       | `undefined`       |
 | `debounce`         | `debounce`           | Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.                                                                                                                                                                | `number`                                                                    | `250`             |
-| `mode`             | `mode`               | The mode determines which platform styles to use.                                                                                                                                                                                                                      | `"ios" \| "md"`                                                             | `undefined`       |
 | `placeholder`      | `placeholder`        | Set the input's placeholder.                                                                                                                                                                                                                                           | `string`                                                                    | `'Search'`        |
 | `searchIcon`       | `search-icon`        | The icon to use as the search icon.                                                                                                                                                                                                                                    | `string`                                                                    | `'search'`        |
 | `showCancelButton` | `show-cancel-button` | If `true`, show the cancel button.                                                                                                                                                                                                                                     | `boolean`                                                                   | `false`           |

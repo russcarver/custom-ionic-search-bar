@@ -7,10 +7,9 @@
 
 import '@stencil/core';
 
-
+import 'ionicons';
 import {
   Color,
-  Mode,
   TextInputChangeEvent,
 } from './interface';
 import {
@@ -34,15 +33,11 @@ export namespace Components {
     */
     'autocorrect': 'on' | 'off';
     /**
-    * Set the cancel button icon. Only applies to `md` mode.
+    * Set the cancel button icon.
     */
     'cancelButtonIcon': string;
     /**
-    * Set the the cancel button text. Only applies to `ios` mode.
-    */
-    'cancelButtonText': string;
-    /**
-    * Set the clear icon. Defaults to `"close-circle"` for `ios` and `"close"` for `md`.
+    * Set the clear icon. Defaults to `"close"`.
     */
     'clearIcon'?: string;
     /**
@@ -54,10 +49,6 @@ export namespace Components {
     */
     'debounce': number;
     /**
-    * The mode determines which platform styles to use.
-    */
-    'mode': Mode;
-    /**
     * Set the input's placeholder.
     */
     'placeholder': string;
@@ -66,7 +57,7 @@ export namespace Components {
     */
     'searchIcon': string;
     /**
-    * Sets focus on the specified `ion-searchbar`. Use this method instead of the global `input.focus()`.
+    * Sets focus on the specified `ci-search-bar`. Use this method instead of the global `input.focus()`.
     */
     'setFocus': () => void;
     /**
@@ -100,15 +91,11 @@ export namespace Components {
     */
     'autocorrect'?: 'on' | 'off';
     /**
-    * Set the cancel button icon. Only applies to `md` mode.
+    * Set the cancel button icon.
     */
     'cancelButtonIcon'?: string;
     /**
-    * Set the the cancel button text. Only applies to `ios` mode.
-    */
-    'cancelButtonText'?: string;
-    /**
-    * Set the clear icon. Defaults to `"close-circle"` for `ios` and `"close"` for `md`.
+    * Set the clear icon. Defaults to `"close"`.
     */
     'clearIcon'?: string;
     /**
@@ -119,10 +106,6 @@ export namespace Components {
     * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
     */
     'debounce'?: number;
-    /**
-    * The mode determines which platform styles to use.
-    */
-    'mode'?: Mode;
     /**
     * Emitted when the input loses focus.
     */

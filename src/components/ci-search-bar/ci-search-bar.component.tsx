@@ -1,20 +1,16 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Method, Prop, State, Watch } from '@stencil/core';
-import { Color, Config, Mode, TextInputChangeEvent } from '../../interface';
+import { Color, Config, TextInputChangeEvent } from '../../interface';
 import { debounceEvent } from '../../utils/helpers';
 import { createColorClasses } from '../../utils/theme';
 
 @Component({
   tag: 'ci-search-bar',
-  styleUrls: {
-    ios: 'ci-search-bar.ios.scss',
-    md: 'ci-search-bar.md.scss'
-  },
+  styleUrl: 'ci-search-bar.scss',
   scoped: true
 })
 export class CustomIonicSearchBar implements ComponentInterface {
 
   private nativeInput?: HTMLInputElement;
-  private isCancelVisible = false;
   private shouldAlignLeft = true;
 
   @Element() el!: HTMLElement;
@@ -33,11 +29,6 @@ export class CustomIonicSearchBar implements ComponentInterface {
   @Prop() color?: Color;
 
   /**
-   * The mode determines which platform styles to use.
-   */
-  @Prop() mode!: Mode;
-
-  /**
    * If `true`, enable searchbar animation.
    */
   @Prop() animated = false;
@@ -53,17 +44,12 @@ export class CustomIonicSearchBar implements ComponentInterface {
   @Prop() autocorrect: 'on' | 'off' = 'off';
 
   /**
-   * Set the cancel button icon. Only applies to `md` mode.
+   * Set the cancel button icon.
    */
   @Prop() cancelButtonIcon = 'md-arrow-back';
 
   /**
-   * Set the the cancel button text. Only applies to `ios` mode.
-   */
-  @Prop() cancelButtonText = 'Cancel';
-
-  /**
-   * Set the clear icon. Defaults to `"close-circle"` for `ios` and `"close"` for `md`.
+   * Set the clear icon. Defaults to `"close"`.
    */
   @Prop() clearIcon?: string;
 
@@ -150,14 +136,13 @@ export class CustomIonicSearchBar implements ComponentInterface {
   componentDidLoad() {
     this.positionElements();
     this.debounceChanged();
-
     setTimeout(() => {
       this.noAnimate = false;
     }, 300);
   }
 
   /**
-   * Sets focus on the specified `ion-searchbar`. Use this method instead of the global
+   * Sets focus on the specified `ci-search-bar`. Use this method instead of the global
    * `input.focus()`.
    */
   @Method()
@@ -239,98 +224,13 @@ export class CustomIonicSearchBar implements ComponentInterface {
 
   /**
    * Positions the input search icon, placeholder, and the cancel button
-   * based on the input value and if it is focused. (ios only)
+   * based on the input value and if it is focused.
    */
   private positionElements() {
     const value = this.getValue();
-    const prevAlignLeft = this.shouldAlignLeft;
     const shouldAlignLeft = (!this.animated || value.trim() !== '' || !!this.focused);
     this.shouldAlignLeft = shouldAlignLeft;
-
-    if (this.mode !== 'ios') {
-      return;
-    }
-
-    if (prevAlignLeft !== shouldAlignLeft) {
-      this.positionPlaceholder();
-    }
-
-    if (this.animated) {
-      this.positionCancelButton();
-    }
-  }
-
-  /**
-   * Positions the input placeholder
-   */
-  private positionPlaceholder() {
-    const inputEl = this.nativeInput;
-    if (!inputEl) {
-      return;
-    }
-    const isRTL = this.doc.dir === 'rtl';
-    const iconEl = (this.el.shadowRoot || this.el).querySelector('.searchbar-search-icon') as HTMLElement;
-
-    if (this.shouldAlignLeft) {
-      inputEl.removeAttribute('style');
-      iconEl.removeAttribute('style');
-
-    } else {
-      // Create a dummy span to get the placeholder width
-      const doc = this.doc;
-      const tempSpan = doc.createElement('span');
-      tempSpan.innerHTML = this.placeholder;
-      doc.body.appendChild(tempSpan);
-
-      // Get the width of the span then remove it
-      const textWidth = tempSpan.offsetWidth;
-      tempSpan.remove();
-
-      // Calculate the input padding
-      const inputLeft = 'calc(50% - ' + (textWidth / 2) + 'px)';
-
-      // Calculate the icon margin
-      const iconLeft = 'calc(50% - ' + ((textWidth / 2) + 30) + 'px)';
-
-      // Set the input padding start and icon margin start
-      if (isRTL) {
-        inputEl.style.paddingRight = inputLeft;
-        iconEl.style.marginRight = iconLeft;
-      } else {
-        inputEl.style.paddingLeft = inputLeft;
-        iconEl.style.marginLeft = iconLeft;
-      }
-    }
-  }
-
-  /**
-   * Show the iOS Cancel button on focus, hide it offscreen otherwise
-   */
-  private positionCancelButton() {
-    const isRTL = this.doc.dir === 'rtl';
-    const cancelButton = (this.el.shadowRoot || this.el).querySelector('.searchbar-cancel-button') as HTMLElement;
-    const shouldShowCancel = this.focused;
-
-    if (cancelButton && shouldShowCancel !== this.isCancelVisible) {
-      const cancelStyle = cancelButton.style;
-      this.isCancelVisible = shouldShowCancel;
-      if (shouldShowCancel) {
-        if (isRTL) {
-          cancelStyle.marginLeft = '0';
-        } else {
-          cancelStyle.marginRight = '0';
-        }
-      } else {
-        const offset = cancelButton.offsetWidth;
-        if (offset > 0) {
-          if (isRTL) {
-            cancelStyle.marginLeft = -offset + 'px';
-          } else {
-            cancelStyle.marginRight = -offset + 'px';
-          }
-        }
-      }
-    }
+    return;
   }
 
   private getValue() {
@@ -354,21 +254,18 @@ export class CustomIonicSearchBar implements ComponentInterface {
   }
 
   render() {
-    const clearIcon = this.clearIcon || (this.mode === 'ios' ? 'ios-close-circle' : 'md-close');
+    const clearIcon = this.clearIcon || 'md-close';
     const searchIcon = this.searchIcon;
 
     const cancelButton = this.showCancelButton && (
       <button
         type="button"
-        tabIndex={this.mode === 'ios' && !this.focused ? -1 : undefined}
+        tabIndex={undefined}
         onMouseDown={this.onCancelSearchbar}
         onTouchStart={this.onCancelSearchbar}
         class="searchbar-cancel-button"
       >
-        {this.mode === 'md'
-          ? <ion-icon mode={this.mode} icon={this.cancelButtonIcon} lazy={false}></ion-icon>
-          : this.cancelButtonText
-        }
+        <ion-icon icon={this.cancelButtonIcon} lazy={false}></ion-icon>
       </button>
     );
 
@@ -388,9 +285,9 @@ export class CustomIonicSearchBar implements ComponentInterface {
           spellCheck={this.spellcheck}
         />
 
-        {this.mode === 'md' && cancelButton}
+        {cancelButton}
 
-        <ion-icon mode={this.mode} icon={searchIcon} lazy={false} class="searchbar-search-icon"></ion-icon>
+        <ion-icon icon={searchIcon} lazy={false} class="searchbar-search-icon"></ion-icon>
 
         <button
           type="button"
@@ -399,10 +296,9 @@ export class CustomIonicSearchBar implements ComponentInterface {
           onMouseDown={this.onClearInput}
           onTouchStart={this.onClearInput}
         >
-          <ion-icon mode={this.mode} icon={clearIcon} lazy={false} class="searchbar-clear-icon"></ion-icon>
+          <ion-icon icon={clearIcon} lazy={false} class="searchbar-clear-icon"></ion-icon>
         </button>
-      </div>,
-      this.mode === 'ios' && cancelButton
+      </div>
     ];
   }
 }

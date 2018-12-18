@@ -2,7 +2,10 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  namespace: 'cisearchbar',
+  bundles: [
+    { components: ['ci-search-bar'] }
+  ],
+  namespace: 'ci-search-bar',
   outputTargets:[
     { type: 'dist' },
     { type: 'docs' },
