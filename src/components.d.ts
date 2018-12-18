@@ -7,7 +7,7 @@
 
 import '@stencil/core';
 
-import 'ionicons';
+
 import {
   Color,
   TextInputChangeEvent,
